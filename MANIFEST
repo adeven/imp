@@ -1,0 +1,16 @@
+Build.PL
+lib/Imp.pm
+lib/Imp/Cpan.pm
+lib/Imp/Environment.pm
+lib/Imp/Portage.pm
+lib/Imp/Portage/Config.pm
+lib/Imp/Portage/Eix.pm
+lib/Imp/Portage/Emerge.pm
+lib/Imp/System.pm
+lib/Imp/System/Cron.pm
+lib/Imp/System/Path.pm
+lib/Imp/System/Useradd.pm
+lib/Imp/Template.pm
+LICENSE
+MANIFEST			This list of files
+README.md

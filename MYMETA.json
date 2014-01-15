@@ -1,0 +1,94 @@
+{
+   "abstract" : "Imp",
+   "author" : [
+      "unknown"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921",
+   "license" : [
+      "unknown"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Imp",
+   "no_index" : {
+      "directory" : [
+         "t"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Test::More" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.38"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "File::HomeDir" : "0",
+            "JSON" : "0",
+            "Moo" : "0",
+            "Template" : "0",
+            "perl" : "5.01"
+         }
+      }
+   },
+   "provides" : {
+      "Imp" : {
+         "file" : "lib/Imp.pm",
+         "version" : "v0.0.1"
+      },
+      "Imp::Cpan" : {
+         "file" : "lib/Imp/Cpan.pm",
+         "version" : 0
+      },
+      "Imp::Environment" : {
+         "file" : "lib/Imp/Environment.pm",
+         "version" : 0
+      },
+      "Imp::Portage" : {
+         "file" : "lib/Imp/Portage.pm",
+         "version" : 0
+      },
+      "Imp::Portage::Config" : {
+         "file" : "lib/Imp/Portage/Config.pm",
+         "version" : 0
+      },
+      "Imp::Portage::Eix" : {
+         "file" : "lib/Imp/Portage/Eix.pm",
+         "version" : 0
+      },
+      "Imp::Portage::Emerge" : {
+         "file" : "lib/Imp/Portage/Emerge.pm",
+         "version" : 0
+      },
+      "Imp::System" : {
+         "file" : "lib/Imp/System.pm",
+         "version" : 0
+      },
+      "Imp::System::Cron" : {
+         "file" : "lib/Imp/System/Cron.pm",
+         "version" : 0
+      },
+      "Imp::System::Path" : {
+         "file" : "lib/Imp/System/Path.pm",
+         "version" : 0
+      },
+      "Imp::System::Useradd" : {
+         "file" : "lib/Imp/System/Useradd.pm",
+         "version" : 0
+      },
+      "Imp::Template" : {
+         "file" : "lib/Imp/Template.pm",
+         "version" : 0
+      }
+   },
+   "release_status" : "stable",
+   "version" : "0.0.1"
+}
