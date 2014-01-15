@@ -2,6 +2,7 @@ package Imp::Portage;
 
 use strict;
 use warnings;
+use 5.010;
 
 use Moo;
 use Sys::Hostname;

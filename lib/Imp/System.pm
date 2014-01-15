@@ -2,6 +2,7 @@ package Imp::System;
 
 use strict;
 use warnings;
+use 5.010;
 
 use Moo;
 use Imp::System::Useradd;
