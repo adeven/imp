@@ -85,9 +85,9 @@ sub _bootstrap_locallib {
     system("wget $self->{url}") == 0   or die $!;
     system("tar xf $self->{pkg}") == 0 or die $!;
     chdir( basename( $self->{pkg}, ".tar.gz" ) );
-    system("perl Makefile.PL --bootstrap") == 0;
-    system("make") == 0;
-    system(" make install ") == 0;
+    system("perl Makefile.PL --bootstrap");
+    system("make");
+    system(" make install ");
 }
 
 1;
