@@ -17,13 +17,12 @@ has FEATURES        => ( is => 'rw' );
 has PORTAGE_BINHOST => ( is => 'rw' );
 
 ##
-has data    => ( is => 'rw' );
-has host    => ( is => 'rw', required => 1 );
-has basedir => ( is => 'rw' );
+has data       => ( is => 'rw' );
+has host       => ( is => 'rw', required => 1 );
+has config_dir => ( is => 'ro', required => 1 );
 
 sub BUILD {
     my $self = shift;
-    $self->basedir('/home/imp/app/current') unless $self->basedir;
     $self->_load_host_config;
     $self->CFLAGS('-O2 -pipe')   unless $self->CFLAGS;
     $self->CXXFLAGS('${CFLAGS}') unless $self->CXXFLAGS;
@@ -49,13 +48,13 @@ sub env {
 sub _load_host_config {
     my $self = shift;
     return unless $self->host;
-    if ( !-f "$self->{basedir}/config/hosts/$self->{host}.json" ) {
+    if ( !-f "$self->{config_dir}/$self->{host}.json" ) {
         print "WARNING: could not load env for $self->{host}\n";
         return;
     }
     my $data = {};
     local $/;
-    open( my $fh, '<', "$self->{basedir}/config/hosts/$self->{host}.json" );
+    open( my $fh, '<', "$self->{config_dir}/$self->{host}.json" );
     my $json_config = <$fh>;
     close($fh);
     my $config = decode_json($json_config);
