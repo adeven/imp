@@ -61,13 +61,30 @@ sub config {
 }
 
 sub unkeyword {
-    my $self    = shift;
-    my $package = shift;
-    my $version = shift;
+    my $self            = shift;
+    my $package         = shift;
+    my $version         = shift;
+    my $escaped_version = $version;
+    $escaped_version =~ s/\./-/g;
     my $escaped = $package;
     $escaped =~ s/\//-/g;
-    if ( !-f "/etc/portage/package.accept_keywords/$escaped" ) {
-        open my $fh, '>>', "/etc/portage/package.accept_keywords/$escaped";
+    if ( !-f "/etc/portage/package.accept_keywords/$escaped-$escaped_version" ) {
+        open my $fh, '>>', "/etc/portage/package.accept_keywords/$escaped-$escaped_version";
+        print $fh "=$package-$version ~amd64\n";
+        close($fh);
+    }
+}
+
+sub unmask {
+    my $self            = shift;
+    my $package         = shift;
+    my $version         = shift;
+    my $escaped_version = $version;
+    $escaped_version =~ s/\./-/g;
+    my $escaped = $package;
+    $escaped =~ s/\//-/g;
+    if ( !-f "/etc/portage/package.accept_keywords/$escaped-$escaped_version" ) {
+        open my $fh, '>>', "/etc/portage/package.accept_keywords/$escaped-$escaped_version";
         print $fh "=$package-$version ~amd64\n";
         close($fh);
     }
