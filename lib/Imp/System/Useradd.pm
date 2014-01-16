@@ -7,8 +7,6 @@ use Moo;
 use File::Basename;
 use autodie;
 
-use Imp::Cpan;
-
 has uid     => ( is => 'rw' );
 has gid     => ( is => 'rw' );
 has pkg     => ( is => 'rw' );
