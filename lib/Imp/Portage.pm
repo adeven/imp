@@ -83,8 +83,8 @@ sub unmask {
     $escaped_version =~ s/\./-/g;
     my $escaped = $package;
     $escaped =~ s/\//-/g;
-    if ( !-f "/etc/portage/package.accept_keywords/$escaped-$escaped_version" ) {
-        open my $fh, '>>', "/etc/portage/package.accept_keywords/$escaped-$escaped_version";
+    if ( !-f "/etc/portage/package.unmask/$escaped-$escaped_version" ) {
+        open my $fh, '>>', "/etc/portage/package.unmask/$escaped-$escaped_version";
         print $fh "=$package-$version\n";
         close($fh);
     }
