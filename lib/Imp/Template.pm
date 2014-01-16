@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 use Moo;
+use Template;
 use Imp::System::Path;
 
 has template => ( is => 'ro', required => 1 );
@@ -25,9 +26,6 @@ sub write {
     );
     $tt->process( $self->template, $self->data, $self->output )
       or die $tt->error;
-
-    #TODO: add logging
-    #or $self->logger->fatal_log("writing $self->{output} failed: $tt->error");
 
     Imp::System::Path->new(
         user  => $self->user,
