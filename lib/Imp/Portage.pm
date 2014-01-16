@@ -15,14 +15,13 @@ use Imp::Environment;
 
 has emerge => ( is => 'rw' );
 has eix    => ( is => 'rw' );
-has env    => ( is => 'rw' );
+has env    => ( is => 'rw', required => 1 );
 
 sub BUILD {
     my $self = shift;
     Imp::Portage::Config->_make_base;
     $self->emerge( Imp::Portage::Emerge->new );
     $self->eix( Imp::Portage::Eix->new );
-    $self->env( Imp::Environment->new( host => hostname ) ) unless $self->env;
     eval { $self->eix->eix_update };
 
     if ($@) {
