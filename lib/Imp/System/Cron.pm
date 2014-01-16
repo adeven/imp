@@ -6,6 +6,7 @@ use warnings;
 use Moo;
 use Imp::System::Path;
 
+has mailto  => ( is => 'rw' );
 has user    => ( is => 'rw' );
 has command => ( is => 'rw' );
 has day     => ( is => 'rw' );
@@ -46,7 +47,7 @@ sub _cron_group_user {
 sub _parse_crontab {
     my $self     = shift;
     my $crontab  = "/var/spool/cron/crontabs/$self->{user}";
-    my $cronfile = "";
+    my $cronfile = '';
     if ( -f $crontab ) {
         open my $rh, '<', $crontab;
         while (<$rh>) {
@@ -58,6 +59,7 @@ sub _parse_crontab {
     if ( $cronfile =~ /$qm/ ) {
         return;
     }
+    $cronfile .= "MAILTO=$self->{mailto}\n" if $self->{mailto};
     $cronfile .= $self->{line} . "\n";
     open my $wh, '>', $crontab;
     print $wh $cronfile;
