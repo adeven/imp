@@ -85,7 +85,7 @@ sub unmask {
     $escaped =~ s/\//-/g;
     if ( !-f "/etc/portage/package.accept_keywords/$escaped-$escaped_version" ) {
         open my $fh, '>>', "/etc/portage/package.accept_keywords/$escaped-$escaped_version";
-        print $fh "=$package-$version ~amd64\n";
+        print $fh "=$package-$version\n";
         close($fh);
     }
 }
