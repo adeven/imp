@@ -13,6 +13,7 @@ use Imp::Cpan;
 use Imp::Template;
 
 our $VERSION = '0.0.1';
+our $HOME    = '/var/lib/imp/current';
 
 sub include {
     my $include = shift;
