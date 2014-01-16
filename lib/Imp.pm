@@ -9,7 +9,6 @@ use warnings;
 
 use Imp::Portage;
 use Imp::System;
-use Imp::Cpan;
 use Imp::Template;
 
 our $VERSION = '0.0.1';
