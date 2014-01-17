@@ -68,7 +68,7 @@ sub _load_host_config {
 sub _set_use_flags {
     my $self        = shift;
     my $default_use = [
-'-X', '-alsa', '-cups', '-gnome', '-qt3', '-qt4', 'bzip2', 'device-mapper',
+        '-X', '-alsa', '-cups', '-gnome', '-qt3', '-qt4', 'bzip2',
         'git', 'iproute2', 'ipv6', 'mmx', 'nls', 'perl', 'python', 'sse',
         'sse2', 'unicode', 'vim-syntax',
     ];
