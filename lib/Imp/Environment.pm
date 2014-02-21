@@ -17,9 +17,10 @@ has FEATURES        => ( is => 'rw' );
 has PORTAGE_BINHOST => ( is => 'rw' );
 
 ##
-has data       => ( is => 'rw' );
-has host       => ( is => 'rw', required => 1 );
-has config_dir => ( is => 'ro', required => 1 );
+has data         => ( is => 'rw' );
+has host         => ( is => 'rw', required => 1 );
+has config_dir   => ( is => 'ro', required => 1 );
+has template_dir => ( is => 'ro', required => 1 );
 
 sub BUILD {
     my $self = shift;
