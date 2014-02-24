@@ -78,7 +78,10 @@ sub _set_use_flags {
 }
 
 sub _set_makeopts {
-    my $self = shift;
+    my $self      = shift;
+    my $cpu_count = `nproc`;
+    chomp $cpu_count;
+    $self->MAKEOPTS("-j$cpu_count");
     $self->MAKEOPTS('-j2') unless $self->MAKEOPTS;
 }
 
